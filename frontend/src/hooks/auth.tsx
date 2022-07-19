@@ -76,7 +76,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
         setData({ access_token: access, user: userData });
 
-        history.push("/dashboard");
+        history.push("/games");
       } catch (err) {
         notification.error({
           message: "Não foi possível realizar o login.",
