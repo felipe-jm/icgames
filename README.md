@@ -18,6 +18,9 @@ pip install django
 pip install djangorestframework
 pip install djangorestframework-simplejwt
 pip install psycopg2
+pip install dj_rest_auth
+pip install django-cors-headers
+pip install django-allauth
 
 python manage.py makemigrations
 python manage.py migrate

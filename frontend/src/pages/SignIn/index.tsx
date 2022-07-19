@@ -1,5 +1,5 @@
 import { Button, Form, Input } from "antd";
-import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 import * as S from "./styles";
 import Flex from "../../components/Flex";
@@ -21,17 +21,17 @@ export const SignIn = () => {
         </Flex>
 
         <Form.Item
-          name="email"
+          name="username"
           rules={[
             {
               required: true,
-              message: "Insira seu E-mail!",
+              message: "Insira seu Username",
             },
           ]}
         >
           <Input
-            prefix={<MailOutlined className="site-form-item-icon" />}
-            placeholder="E-mail"
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="Username"
           />
         </Form.Item>
         <Form.Item

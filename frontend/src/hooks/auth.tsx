@@ -6,7 +6,6 @@ import { history } from "../services/history";
 type User = {
   id: string;
   username: string;
-  email: string;
 };
 
 type AuthState = {
@@ -15,7 +14,7 @@ type AuthState = {
 };
 
 export type SignInCredentials = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -23,7 +22,7 @@ export type SignUpParams = {
   password1: string;
   password2: string;
   first_name: string;
-  email: string;
+  username: string;
 };
 
 type AuthContextData = {
@@ -55,33 +54,50 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }: SignInCredentials) => {
-    const response = await api.post("api/token/", { email, password });
+  const signIn = useCallback(
+    async ({ username, password }: SignInCredentials) => {
+      try {
+        const response = await api.post("api/token/", { username, password });
 
-    const { access_token, user } = response.data;
+        const { access } = response.data;
 
-    localStorage.setItem("@ICGames:access_token", access_token);
-    localStorage.setItem("@ICGames:user", JSON.stringify(user));
+        api.defaults.headers.common["Authorization"] = `Bearer ${access}`;
 
-    api.defaults.headers.common = {
-      Authorization: `Bearer ${access_token}`,
-    };
+        const userResponse = await api.get("rest-auth/user/");
 
-    setData({ access_token, user });
-  }, []);
+        const userData = userResponse.data;
+
+        localStorage.setItem("@ICGames:access_token", access);
+        localStorage.setItem("@ICGames:user", JSON.stringify(userData));
+
+        api.defaults.headers.common = {
+          Authorization: `Bearer ${access}`,
+        };
+
+        setData({ access_token: access, user: userData });
+
+        history.push("/dashboard");
+      } catch (err) {
+        notification.error({
+          message: "Não foi possível realizar o login.",
+        });
+      }
+    },
+    []
+  );
 
   const signUp = async ({
     password1,
     password2,
     first_name,
-    email,
+    username,
   }: SignUpParams) => {
     try {
       await api.post("/rest-auth/registration/", {
         password1,
         password2,
         first_name,
-        email,
+        username,
       });
 
       notification.success({
