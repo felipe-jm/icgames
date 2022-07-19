@@ -20,7 +20,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        javascriptEnabled: true, // 支持内联 JavaScript
+        javascriptEnabled: true,
       },
     },
   },

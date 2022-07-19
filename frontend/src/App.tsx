@@ -1,9 +1,21 @@
 import "./App.css";
 
-import { DatePicker } from 'antd'
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { AuthProvider } from "./hooks/auth";
+import { Routes } from "./routes";
+
+import GlobalStyle from "./styles/global";
 
 function App() {
-  return <DatePicker />
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes />
+        <GlobalStyle />
+      </Router>
+    </AuthProvider>
+  );
 }
 
 export default App;
