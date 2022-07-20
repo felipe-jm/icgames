@@ -2,7 +2,7 @@
 
 Trabalho final da matéria Programação em Ambiente WEB II - UFMT
 
-Aluno: Felipe Jung de Mattos
+**Aluno: Felipe Jung de Mattos**
 
 O trabalho em questão é uma aplicação bem simples com CRUDs de entidades relacionados a um E-commerce de games. Foi feito pensando em grandes E-commerces como a [Steam](https://store.steampowered.com/?l=portuguese), [Epic Games](https://store.epicgames.com/pt-BR/) e [GOG Games](https://www.gog.com).
 
