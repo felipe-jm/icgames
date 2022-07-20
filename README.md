@@ -60,6 +60,7 @@ pip install django
 pip install djangorestframework
 pip install djangorestframework-simplejwt
 pip install psycopg2
+# Se não rodar com o psycopg2, utilizar o psycopg2-binary
 pip install dj_rest_auth
 pip install django-cors-headers
 pip install django-allauth
