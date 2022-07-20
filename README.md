@@ -40,6 +40,14 @@ git clone https://github.com/felipe-jm/icgames
 
 As credencias do banco de dados podem ser alteradas em [./backend/icgames/settings.py](./backend/icgames/settings.py), na variável **DATABASES**. Mas por padrão é necessário um banco de dados com o nome **icgames**.
 
+SQL para a criação do banco de dados:
+
+```sql
+CREATE DATABASE icgames;
+```
+
+Não é necessário o sql para criar as tabelas, já que isso é feito automaticamente pelo Django ao executar o comando **migrate**.
+
 ### Passos para rodar o **backend**
 
 ```bash
