@@ -1,5 +1,5 @@
 import { EditOutlined } from "@ant-design/icons";
-import { Button, notification, Table } from "antd";
+import { Button, notification, Table, Tag } from "antd";
 import { ColumnProps } from "antd/lib/table";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,9 +9,16 @@ import { api } from "../../services/api";
 import * as S from "./styles";
 
 export type Game = {
+  id: string;
   name: string;
   description: string;
   price: number;
+  category: number;
+  category_name: string;
+  developer: number;
+  developer_name: string;
+  platforms: number;
+  platforms_names: string;
 };
 
 export const Games = () => {
@@ -47,9 +54,19 @@ export const Games = () => {
       dataIndex: "category_name",
     },
     {
+      title: "Desenvolvedor",
+      dataIndex: "developer_name",
+    },
+    {
+      title: "Plataformas",
+      dataIndex: "platforms_names",
+    },
+    {
       title: "Preço",
       dataIndex: "price",
       align: "right",
+      render: (price) =>
+        price === "0.00" ? <Tag color="green">Free</Tag> : price,
     },
     {
       title: "Ações",

@@ -9,6 +9,7 @@ import { api } from "../../services/api";
 import * as S from "./styles";
 
 export type Developer = {
+  id: number;
   name: string;
   description: string;
   price: number;

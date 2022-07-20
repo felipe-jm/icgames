@@ -2,7 +2,9 @@ import { Button, Form, Input, notification } from "antd";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CategoriesSelect } from "../../../components/CategoriesSelect";
+import { DevelopersSelect } from "../../../components/DevelopersSelect";
 import Flex from "../../../components/Flex";
+import { PlatformsSelect } from "../../../components/PlatformsSelect";
 import { api } from "../../../services/api";
 import { history } from "../../../services/history";
 import * as S from "./styles";
@@ -97,6 +99,10 @@ export const CreateGame = () => {
         </Form.Item>
 
         <CategoriesSelect />
+
+        <DevelopersSelect />
+
+        <PlatformsSelect />
 
         <Flex justify="flex-end">
           <Button htmlType="submit">Salvar</Button>

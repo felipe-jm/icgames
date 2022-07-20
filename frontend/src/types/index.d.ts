@@ -4,3 +4,8 @@ export type StandardResponse<T> = {
   previous: null;
   results: T[];
 };
+
+export type Option = {
+  label: string;
+  value: string | number;
+};
