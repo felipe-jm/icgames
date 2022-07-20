@@ -86,6 +86,6 @@ Ao estar rodando tanto o backend quanto o frontend, pode-se cadastrar-se um novo
 
 ![Tela inicial do ICGames](./imgs/icgames.png)
 
-A partir daí, a navegação é bem simples e intuitiva. As entidades possuem alguns dados pré-cadastrados no banco de dados.
+A navegação é bem simples e intuitiva e as entidades possuem alguns dados pré-cadastrados no banco de dados.
 
 Feito por Felipe Jung :blush: <a href="https://www.linkedin.com/in/felipe-jung/">Meu contato</a>
