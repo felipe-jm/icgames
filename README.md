@@ -1,6 +1,6 @@
 # icgames :video_game:
 
-Trabalho final da disciplina de Programação Web 2 - UFMT
+Trabalho final da matéria Programação em Ambiente WEB II - UFMT
 
 O trabalho em questão é uma aplicação bem simples com CRUDs de entidades relacionados a um E-commerce de games. Foi feito pensando em grandes E-commerces como a [Steam](https://store.steampowered.com/?l=portuguese), [Epic Games](https://store.epicgames.com/pt-BR/) e [GOG Games](https://www.gog.com).
 
