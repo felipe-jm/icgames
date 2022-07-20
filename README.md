@@ -6,6 +6,8 @@ O trabalho em questão é uma aplicação bem simples com CRUDs de entidades rel
 
 ---
 
+# :zap: Tecnologias
+
 ## Linguagens de programação utilizadas:
 
 - [Typescript](https://www.typescriptlang.org)
@@ -16,6 +18,12 @@ O trabalho em questão é uma aplicação bem simples com CRUDs de entidades rel
 - [Django Rest Framework](https://www.django-rest-framework.org) (backend)
 - [React](https://pt-br.reactjs.org) (frontend)
 
+## Banco de Dados
+
+- [Postgres](https://www.postgresql.org)
+
+_Para rodar o banco de dados em Postgres foi utilizado um container em [Docker](https://www.docker.com)_
+
 ---
 
 ## :information_source: Como rodar o projeto
@@ -25,6 +33,10 @@ O trabalho em questão é uma aplicação bem simples com CRUDs de entidades rel
 ```bash
 git clone https://github.com/felipe-jm/icgames
 ```
+
+### Banco de dados
+
+As credencias do banco de dados podem ser alteradas em [./backend/icgames/settings.py](./backend/icgames/settings.py), na variável **DATABASES**. Mas por padrão é necessário um banco de dados com o nome **icgames**.
 
 ### Passos para rodar o **backend**
 
@@ -73,5 +85,7 @@ npm run dev
 Ao estar rodando tanto o backend quanto o frontend, pode-se cadastrar-se um novo usuário usando a tela de cadastro e logo após realizar o login.
 
 ![Tela inicial do ICGames](./imgs/icgames.png)
+
+A partir daí, a navegação é bem simples e intuitiva. As entidades possuem alguns dados pré-cadastrados no banco de dados.
 
 Feito por Felipe Jung :blush: <a href="https://www.linkedin.com/in/felipe-jung/">Meu contato</a>
