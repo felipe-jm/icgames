@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-LOCAL_APPS = ['games', 'platforms', 'categories', 'orders']
+LOCAL_APPS = ['games', 'platforms', 'categories', 'developers']
 
 
 # Application definition

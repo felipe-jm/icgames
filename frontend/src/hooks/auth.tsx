@@ -116,6 +116,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem("@ICGames:access_token");
     localStorage.removeItem("@ICGames:user");
 
+    delete api.defaults.headers.common.Authorization;
+
     setData({} as AuthState);
   }, []);
 

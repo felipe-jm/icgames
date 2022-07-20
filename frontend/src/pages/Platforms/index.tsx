@@ -8,19 +8,19 @@ import { api } from "../../services/api";
 
 import * as S from "./styles";
 
-export type Game = {
+export type Platform = {
   name: string;
   description: string;
   price: number;
 };
 
-export const Games = () => {
-  const [data, setData] = useState<Game[]>([]);
+export const Platforms = () => {
+  const [data, setData] = useState<Platform[]>([]);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await api.get("api/v1/games/");
+        const response = await api.get("api/v1/platforms/");
 
         setData(response.data.results);
       } catch (err) {
@@ -33,30 +33,17 @@ export const Games = () => {
     loadData();
   }, []);
 
-  const columns: ColumnProps<Game>[] = [
+  const columns: ColumnProps<Platform>[] = [
     {
       title: "Nome",
       dataIndex: "name",
-    },
-    {
-      title: "Descrição",
-      dataIndex: "description",
-    },
-    {
-      title: "Categoria",
-      dataIndex: "category_name",
-    },
-    {
-      title: "Preço",
-      dataIndex: "price",
-      align: "right",
     },
     {
       title: "Ações",
       dataIndex: "id",
       align: "center",
       render: (id) => (
-        <Link to={`/games/${id}`}>
+        <Link to={`/Platforms/${id}`}>
           <Button shape="circle" icon={<EditOutlined />} />
         </Link>
       ),
@@ -66,10 +53,10 @@ export const Games = () => {
   return (
     <S.Wrapper>
       <Flex justify="space-between">
-        <h1>Jogos</h1>
+        <h1>Plataformas</h1>
 
-        <Link to="/games/create">
-          <Button type="primary">Criar Novo</Button>
+        <Link to="/Platforms/create">
+          <Button type="primary">Criar Nova</Button>
         </Link>
       </Flex>
 

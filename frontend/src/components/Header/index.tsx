@@ -18,6 +18,9 @@ export const Header = () => {
         <Menu.Item key="categories">
           <Link to="/categories">Categorias</Link>
         </Menu.Item>
+        <Menu.Item key="developers">
+          <Link to="/developers">Desenvolvedores</Link>
+        </Menu.Item>
       </Menu>
 
       <Button danger onClick={signOut}>

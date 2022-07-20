@@ -1,20 +1,17 @@
-import { Button, Form, Input, notification } from "antd";
+import { Button, Form, Input, notification, Select } from "antd";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { CategoriesSelect } from "../../../components/CategoriesSelect";
 import Flex from "../../../components/Flex";
 import { api } from "../../../services/api";
 import { history } from "../../../services/history";
 import * as S from "./styles";
 
-const { TextArea } = Input;
-
-type CreateGameParams = {
+type CreateCategoryParams = {
   id?: string;
 };
 
-export const CreateGame = () => {
-  const { id } = useParams<CreateGameParams>();
+export const CreateCategory = () => {
+  const { id } = useParams<CreateCategoryParams>();
 
   const [form] = Form.useForm();
 
@@ -23,7 +20,7 @@ export const CreateGame = () => {
       try {
         if (!id) return;
 
-        const response = await api.get(`api/v1/games/${id}/`);
+        const response = await api.get(`api/v1/categories/${id}/`);
 
         form.setFieldsValue(response.data);
       } catch (err) {
@@ -39,19 +36,19 @@ export const CreateGame = () => {
   const onFinish = async (values: any) => {
     try {
       if (id) {
-        await api.put(`api/v1/games/${id}/`, values);
+        await api.put(`api/v1/categories/${id}/`, values);
       } else {
-        await api.post("api/v1/games/", values);
+        await api.post("api/v1/categories/", values);
       }
 
       notification.success({
-        message: "Jogo salvo com sucesso!",
+        message: "Categoria salva com sucesso!",
       });
 
-      history.push("/games");
+      history.push("/categories");
     } catch (err) {
       notification.error({
-        message: "Erro ao tentar criar jogo. Tente novamente.",
+        message: "Erro ao tentar criar categoria. Tente novamente.",
       });
     }
   };
@@ -61,7 +58,7 @@ export const CreateGame = () => {
       <Form form={form} onFinish={onFinish} layout="vertical">
         <Form.Item
           name="name"
-          label="Nome"
+          label="Nome da Categoria"
           rules={[
             {
               required: true,
@@ -69,34 +66,8 @@ export const CreateGame = () => {
             },
           ]}
         >
-          <Input placeholder="Nome" />
+          <Input placeholder="Digite uma categoria de jogo" />
         </Form.Item>
-        <Form.Item
-          name="description"
-          label="Descrição"
-          rules={[
-            {
-              required: true,
-              message: "Campo obrigatório",
-            },
-          ]}
-        >
-          <TextArea placeholder="Descrição" />
-        </Form.Item>
-        <Form.Item
-          name="price"
-          label="Preço"
-          rules={[
-            {
-              required: true,
-              message: "Campo obrigatório",
-            },
-          ]}
-        >
-          <Input type="number" placeholder="Preço" />
-        </Form.Item>
-
-        <CategoriesSelect />
 
         <Flex justify="flex-end">
           <Button htmlType="submit">Salvar</Button>
