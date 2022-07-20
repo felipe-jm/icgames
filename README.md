@@ -8,8 +8,8 @@ O trabalho em questão é uma aplicação bem simples com CRUDs de entidades rel
 
 ## Linguagens de programação utilizadas:
 
-- Typescript
-- Python
+- [Typescript](https://www.typescriptlang.org)
+- [Python](https://www.python.org)
 
 ## Frameworks utilizados:
 
